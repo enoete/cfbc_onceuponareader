@@ -30,6 +30,8 @@
   color: var(--ink);
 }
 
+h1, h2, h3, p, ul, ol { margin: 0; }
+
 section {
   width: 1920px;
   height: 1080px;
@@ -38,7 +40,7 @@ section {
   background: var(--cream);
   display: flex;
   flex-direction: column;
-  gap: 36px;
+  gap: 28px;
 }
 
 section.dark { background: var(--ink); color: var(--cream); }
@@ -110,7 +112,7 @@ section.dark .hand { color: var(--gold); }
 
 .spacer { flex: 1; }
 
-.row { display: flex; gap: 28px; }
+.row { display: flex; gap: 24px; }
 .row.grow > div { flex: 1; }
 .col { display: flex; flex-direction: column; gap: 20px; }
 
@@ -118,11 +120,11 @@ section.dark .hand { color: var(--gold); }
   background: var(--paper);
   border: 4px solid var(--ink);
   border-radius: 32px;
-  padding: 40px;
-  box-shadow: 0 14px 0 var(--ink);
+  padding: 32px;
+  box-shadow: 0 12px 0 var(--ink);
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .card.teal { background: var(--teal-soft); }
@@ -139,14 +141,19 @@ section.dark .hand { color: var(--gold); }
 .card .body { font-size: 28px; line-height: 1.4; }
 .card .mini { font-size: 24px; line-height: 1.35; color: var(--ink-soft); }
 
+/* Light surfaces always carry dark text, even on a dark or coral slide.
+   Cards that are meant to be dark set their own colour inline, which wins. */
+.card, .chip, .swap, .sticky, .formula .term { color: var(--ink); }
+section.dark .formula .op, section.coral .formula .op { color: var(--gold); }
+
 .chips { display: flex; flex-wrap: wrap; gap: 18px; }
 .chip {
-  font-size: 34px;
+  font-size: 32px;
   font-weight: 700;
   background: var(--paper);
   border: 4px solid var(--ink);
   border-radius: 999px;
-  padding: 14px 34px;
+  padding: 12px 30px;
 }
 .chip.teal { background: var(--teal-soft); }
 .chip.coral { background: var(--coral-soft); }
@@ -155,10 +162,10 @@ section.dark .hand { color: var(--gold); }
 
 .swap {
   border-radius: 28px;
-  padding: 36px 44px;
+  padding: 26px 40px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 }
 .swap.before { background: #EFE9DC; }
 .swap.after { background: var(--teal-soft); border: 4px solid var(--teal); }
@@ -170,7 +177,7 @@ section.dark .hand { color: var(--gold); }
 .sticky {
   background: var(--gold-soft);
   border-radius: 8px;
-  padding: 32px 36px;
+  padding: 26px 34px;
   box-shadow: 0 10px 24px rgba(46, 35, 72, 0.18);
   transform: rotate(-2deg);
 }
@@ -193,7 +200,7 @@ section.dark .hand { color: var(--gold); }
   background: var(--paper);
   border: 4px solid var(--ink);
   border-radius: 28px;
-  padding: 28px;
+  padding: 22px;
   text-align: center;
   font-size: 34px;
   font-weight: 700;
@@ -232,10 +239,10 @@ section.dark .hand { color: var(--gold); }
   background: var(--purple-soft);
   border-left: 10px solid var(--purple);
   border-radius: 20px;
-  padding: 26px 34px;
+  padding: 20px 30px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 6px;
 }
 .fr .label {
   font-size: 24px;
@@ -327,26 +334,26 @@ body.shownotes #notes{display:block}
 </section>
 <section id="name-that-story">
 <div class="tagrow"><p class="tag">Shout it out</p><p class="tag timer">4 minutes</p></div>
-<h2>Name that story from the prop</h2>
+<h2 style="font-size:66px">Name that story from the prop</h2>
 <div class="row grow">
 <div class="card" style="align-items:center">
-<svg aria-label="A house of bricks beside a bundle of straw" width="200" height="170" viewBox="0 0 200 170"><rect x="18" y="104" width="54" height="46" rx="6" fill="#E8A317"/><path d="M20 112 h50 M20 124 h50 M20 136 h50" stroke="#2E2348" stroke-width="4"/><path d="M86 70 L136 34 L186 70 Z" fill="#D94A32" stroke="#2E2348" stroke-width="5" stroke-linejoin="round"/><rect x="94" y="70" width="84" height="80" fill="#FBD9CF" stroke="#2E2348" stroke-width="5"/><rect x="94" y="70" width="84" height="80" fill="none" stroke="#2E2348" stroke-width="3"/><path d="M94 96 h84 M94 122 h84 M122 70 v26 M150 96 v26 M122 122 v28" stroke="#2E2348" stroke-width="3"/></svg>
+<svg aria-label="A house of bricks beside a bundle of straw" width="180" height="150" viewBox="0 0 200 170"><rect x="18" y="104" width="54" height="46" rx="6" fill="#E8A317"/><path d="M20 112 h50 M20 124 h50 M20 136 h50" stroke="#2E2348" stroke-width="4"/><path d="M86 70 L136 34 L186 70 Z" fill="#D94A32" stroke="#2E2348" stroke-width="5" stroke-linejoin="round"/><rect x="94" y="70" width="84" height="80" fill="#FBD9CF" stroke="#2E2348" stroke-width="5"/><rect x="94" y="70" width="84" height="80" fill="none" stroke="#2E2348" stroke-width="3"/><path d="M94 96 h84 M94 122 h84 M122 70 v26 M150 96 v26 M122 122 v28" stroke="#2E2348" stroke-width="3"/></svg>
 <h3 class="fragment" style="color:#D94A32">The Three Little Pigs<br><span style="color:#6B49B8">Les Trois Petits Cochons</span></h3>
 </div>
 <div class="card" style="align-items:center">
-<svg aria-label="A wooden bridge over a stream" width="200" height="170" viewBox="0 0 200 170"><path d="M10 140 q90 -24 180 0" fill="none" stroke="#16806F" stroke-width="8" stroke-linecap="round"/><path d="M16 96 q84 -46 168 0" fill="none" stroke="#2E2348" stroke-width="9" stroke-linecap="round"/><path d="M30 100 v34 M60 86 v44 M100 80 v50 M140 86 v44 M170 100 v34" stroke="#2E2348" stroke-width="7" stroke-linecap="round"/><path d="M16 72 q84 -40 168 0" fill="none" stroke="#E8A317" stroke-width="8" stroke-linecap="round"/></svg>
+<svg aria-label="A wooden bridge over a stream" width="180" height="150" viewBox="0 0 200 170"><path d="M10 140 q90 -24 180 0" fill="none" stroke="#16806F" stroke-width="8" stroke-linecap="round"/><path d="M16 96 q84 -46 168 0" fill="none" stroke="#2E2348" stroke-width="9" stroke-linecap="round"/><path d="M30 100 v34 M60 86 v44 M100 80 v50 M140 86 v44 M170 100 v34" stroke="#2E2348" stroke-width="7" stroke-linecap="round"/><path d="M16 72 q84 -40 168 0" fill="none" stroke="#E8A317" stroke-width="8" stroke-linecap="round"/></svg>
 <h3 class="fragment" style="color:#16806F">The Three Billy Goats Gruff<br><span style="color:#6B49B8">Les Trois Boucs Bourrus</span></h3>
 </div>
 <div class="card" style="align-items:center">
-<svg aria-label="A red hooded cape and a covered basket" width="200" height="170" viewBox="0 0 200 170"><path d="M58 36 a34 34 0 0 1 56 0 l26 104 h-108 Z" fill="#D94A32" stroke="#2E2348" stroke-width="5" stroke-linejoin="round"/><path d="M62 42 a30 30 0 0 0 48 0" fill="none" stroke="#2E2348" stroke-width="4"/><rect x="138" y="100" width="50" height="40" rx="6" fill="#E8A317" stroke="#2E2348" stroke-width="5"/><path d="M138 112 h50" stroke="#2E2348" stroke-width="4"/><path d="M148 100 a15 13 0 0 1 30 0" fill="none" stroke="#2E2348" stroke-width="5"/></svg>
+<svg aria-label="A red hooded cape and a covered basket" width="180" height="150" viewBox="0 0 200 170"><path d="M58 36 a34 34 0 0 1 56 0 l26 104 h-108 Z" fill="#D94A32" stroke="#2E2348" stroke-width="5" stroke-linejoin="round"/><path d="M62 42 a30 30 0 0 0 48 0" fill="none" stroke="#2E2348" stroke-width="4"/><rect x="138" y="100" width="50" height="40" rx="6" fill="#E8A317" stroke="#2E2348" stroke-width="5"/><path d="M138 112 h50" stroke="#2E2348" stroke-width="4"/><path d="M148 100 a15 13 0 0 1 30 0" fill="none" stroke="#2E2348" stroke-width="5"/></svg>
 <h3 class="fragment" style="color:#D94A32">Little Red Riding Hood<br><span style="color:#6B49B8">Le Petit Chaperon Rouge</span></h3>
 </div>
 <div class="card" style="align-items:center">
-<svg aria-label="A spider web in a barn corner" width="200" height="170" viewBox="0 0 200 170"><g stroke="#2E2348" stroke-width="4" fill="none" stroke-linecap="round"><path d="M100 20 v124 M100 82 h-80 M100 82 h80 M44 26 l112 112 M156 26 L44 138"/><path d="M100 44 L128 54 136 82 128 110 100 120 72 110 64 82 72 54 Z"/><path d="M100 24 L148 42 164 82 148 122 100 140 52 122 36 82 52 42 Z"/></g></svg>
+<svg aria-label="A spider web in a barn corner" width="180" height="150" viewBox="0 0 200 170"><g stroke="#2E2348" stroke-width="4" fill="none" stroke-linecap="round"><path d="M100 20 v124 M100 82 h-80 M100 82 h80 M44 26 l112 112 M156 26 L44 138"/><path d="M100 44 L128 54 136 82 128 110 100 120 72 110 64 82 72 54 Z"/><path d="M100 24 L148 42 164 82 148 122 100 140 52 122 36 82 52 42 Z"/></g></svg>
 <h3 class="fragment" style="color:#16806F">Charlotte’s Web<br><span style="color:#6B49B8">La Toile de Charlotte</span></h3>
 </div>
 </div>
-<div class="fr"><p class="label">En français</p><p class="line">Ces quatre contes existent aussi en français — et ils sont restés dans les deux langues. Un bon conte traverse les frontières.</p><p class="who">↳ A student reads this one aloud.</p></div>
+<div class="fr" style="padding:16px 30px"><p class="label">En français</p><p class="line" style="font-size:28px">Ces quatre contes existent aussi en français — et ils sont restés dans les deux langues. Un bon conte traverse les frontières.</p><p class="who">↳ A student reads this one aloud.</p></div>
 <aside>Point at each prop and let them shout. Click to reveal each title. Then land the point: these stories have survived for decades, some of them for centuries, because of things you can actually copy — a repeating pattern, a clear problem, a character you can describe in three words. If you have the real books, hold them up here. Reveal each English title yourself, then let the room read the French title off the screen — do not attempt it. Then make the bilingual point: three of these are European folk tales that crossed into English, and all four are read in French today. Ask which French versions they already know.</aside>
 </section>
 <section id="fr-vocab" class="paper">
@@ -457,8 +464,7 @@ body.shownotes #notes{display:block}
 <p class="chip coral">Imagination</p>
 </div>
 <div class="fr"><p class="label">En français</p><p class="big-line">les amis · la famille · les animaux · l’école · la nature · les émotions · l’imagination</p></div>
-<div class="spacer"></div>
-<div class="sticky" style="width:1200px"><p class="hand">Children connect to experiences they already know. Give them a door they recognise, then take them somewhere new.</p></div>
+<div class="sticky" style="width:1200px"><p class="hand" style="font-size:42px">Children connect to experiences they already know. Give them a door they recognise, then take them somewhere new.</p></div>
 <aside>Walk the chips and ask the room to call out a St. Kitts and Nevis version of each one: the dog that follows them to school, the mango tree, the blackout, carnival, the sea. A child here should be able to see their own island in a book. That is a gap in the market and your students can fill it.</aside>
 </section>
 <section id="swap-it">
@@ -507,10 +513,10 @@ body.shownotes #notes{display:block}
 </section>
 <section id="simple-words">
 <p class="eyebrow">Part three · the craft</p>
-<h2>Use words children already own</h2>
-<div class="col" style="gap:24px">
-<div class="swap before"><p class="label">Don’t</p><p class="line">“The child experienced great disappointment.”</p></div>
-<div class="swap after"><p class="label">Do</p><p class="line">“Emma felt sad.”</p></div>
+<h2 style="font-size:70px">Use words children already own</h2>
+<div class="row">
+<div class="swap before" style="flex:1"><p class="label">Don’t</p><p class="line" style="font-size:34px">“The child experienced great disappointment.”</p></div>
+<div class="swap after" style="flex:1"><p class="label">Do</p><p class="line" style="font-size:34px">“Emma felt sad.”</p></div>
 </div>
 <div class="row grow">
 <div class="card teal"><h3>Short sentences</h3><p class="body">One idea per sentence. Full stops are your friend.</p></div>
@@ -518,18 +524,18 @@ body.shownotes #notes{display:block}
 <div class="card teal"><h3>Natural conversation</h3><p class="body">Write the way a person actually speaks to a child.</p></div>
 </div>
 <div class="fr"><p class="label">La même règle en français</p><p class="line">✗ « L’enfant éprouva une grande déception. » &nbsp;→&nbsp; ✓ « Emma était triste. »</p></div>
-<p class="big" style="color:#D94A32; font-size:58px">Simple is powerful. &nbsp;<span style="color:#6B49B8">La simplicité, c’est la force.</span></p>
+<p class="big" style="color:#D94A32; font-size:46px">Simple is powerful. &nbsp;<span style="color:#6B49B8">La simplicité, c’est la force.</span></p>
 <aside>Warn them about the trap: writing for children tempts you to show off your vocabulary to prove the book is "literary". Resist it. The skill is saying something real in words a five-year-old owns. That is harder than writing the long version, not easier.</aside>
 </section>
 <section id="translation">
 <div class="tagrow"><p class="tag">Fun challenge</p><p class="tag timer">5 minutes</p></div>
-<h2>Who can translate this for a five-year-old?</h2>
-<div class="swap before"><p class="label">The grown-up version</p><p class="line">“Despite her considerable trepidation, the diminutive amphibian eventually commenced her aquatic descent.”</p></div>
+<h2 style="font-size:66px">Who can translate this for a five-year-old?</h2>
+<div class="swap before" style="padding:20px 40px"><p class="label">The grown-up version</p><p class="line" style="font-size:34px">“Despite her considerable trepidation, the diminutive amphibian eventually commenced her aquatic descent.”</p></div>
 <div class="row" style="gap:28px">
 <div class="card teal" style="flex:1"><h3>One possible answer</h3><p class="body fragment" style="font-size:36px">“The little frog was scared. But she jumped in anyway. <i>Splash!</i>”</p></div>
 <div class="card gold" style="flex:1"><h3>Round two · en français</h3><p class="who">↳ A student reads the pompous version aloud.</p><p class="body">« Malgré son appréhension considérable, le petit amphibien entreprit sa descente aquatique. »</p><p class="body fragment" style="font-size:36px; color:#16806F">« La petite grenouille avait peur. Mais elle a sauté. <i>Plouf !</i> »</p></div>
 </div>
-<p class="small">Best translation wins. Read yours out loud — if it sounds like a textbook, it loses. <b>Si ça sonne comme un manuel, c’est perdu.</b></p>
+<p class="small">Best translation wins — if it sounds like a textbook, it loses. <b>Si ça sonne comme un manuel, c’est perdu.</b></p>
 <aside>Run it as a real competition in pairs; a small prize helps. Read the ENGLISH sentence yourself in a deliberately pompous voice, then hand the French one to a confident student and let them ham it up — it is funnier coming from them anyway. The French round is the same sentence, so they can compare both solutions side by side, which is genuinely useful for CAPE. After you click the answers, point out what the good versions did: they cut the adjectives, they used a sound word, and they kept the feeling. Ask the room which sound word is stronger in French and let them argue it out.</aside>
 </section>
 <section id="repetition">
